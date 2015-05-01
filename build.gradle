@@ -1,0 +1,46 @@
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+dependencies {
+    //compile("org.springframework.boot:spring-boot-starter-web:1.1.6.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("junit:junit")
+    compile 'org.springframework.security:spring-security-web:3.2.6.RELEASE'
+    compile 'javax.servlet:jstl'
+    compile ('com.dropbox.core:dropbox-core-sdk:1.7.7')
+    compile("org.webjars:jquery:2.0.3-1")
+    compile 'com.fasterxml.jackson.core:jackson-core:2.2.4'
+    compile("org.webjars:jquery:2.0.3-1")
+    compile 'mysql:mysql-connector-java:5.1.6'
+    compile("org.springframework.data:spring-data-mongodb")
+    compile group: 'com.restfb', name: 'restfb', version: '1.7.0'
+    compile 'org.facebook4j:facebook4j-core:2.2.0'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
